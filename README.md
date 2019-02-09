@@ -13,9 +13,9 @@ Microsoft Account
 Azure DevOps Account    
 Azure DevOps Project
 
-> 2 Guides Available: [Module Use Only](#Getting-Started-(Module-use-only)) or [Full Project Installation](#Getting-Started-(Full-Project-Installation))
+> 2 Guides Available: [Module Only](#Getting-Started---Module-only*) or [Full Project](#Getting-Started---Full-Project))
 
-## Getting Started (Module use only)
+## Getting Started - Module Only
 These instructions will get you an updated copy of the module downloaded to your local machine and walk you through creating your first YML Build and Release Definitions!
 
 ### Installing
@@ -33,8 +33,8 @@ Import-Module PipelinesAsCode
 Get-Command -Module PipelinesAsCode
 ```
 
-## Getting Started (Full Project Installation)
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [Module Use Only](#Getting-Started-(Module-use-only)) section for notes on how to use the module on a live system.
+## Getting Started - Full Project
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [Module Only](#Getting-Started---Module-only*) section for notes on how to use the module on a live system.
 
 ### Installing
 Step by step instructions for how to install this project and the required dependencies to your local machine

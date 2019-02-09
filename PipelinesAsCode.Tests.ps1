@@ -50,7 +50,7 @@ Describe "Get-AgentID" {
         $agentId.GetType().Name | Should Be "int32"
     }
 }
-
+<#
 Describe "New-BuildDefinition" {
     It " creates a Build Definition" {
         $newBuildParams = @{           
@@ -102,3 +102,4 @@ Describe "New-ReleaseDefinition" {
         Remove-BuildDefinition @baseParams -buildDefinitionID $Script:testBuildId
     }
 }
+#>

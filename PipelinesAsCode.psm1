@@ -47,7 +47,7 @@ Function New-BuildDefinition {
         [switch]$Force
     )
 
-    process {
+    begin {
         $uri = "https://dev.azure.com/$org/$project/_apis/build/definitions`?api-version=5.0-preview.7"
 
         $payload = @{
@@ -68,8 +68,8 @@ Function New-BuildDefinition {
                 }
             }
             process = @{
+                yamlFilename = $manifestPath
                 type = 2
-                yamlFilename = $manifestPath            
             }
             variables = Get-DeployVariables $publicBuildVariables $secretBuildVariables
         }
@@ -78,13 +78,15 @@ Function New-BuildDefinition {
             uri = $uri 
             Method = "Post"
             Body = ($payload | ConvertTo-Json -Compress)
-            Credential = $creds
-            ContentType = "application/json"
             Headers = @{
                 Authorization = ("Basic {0}" -f (Get-AuthToken -creds $creds))
             }
+            Credential = $creds
+            ContentType = "application/json"
         }
+    }
 
+    process {
         if ($Force -or $PSCmdlet.ShouldProcess(
             $buildName,             
             "Create Build Definition for $org on $project" 
@@ -114,7 +116,7 @@ Function Get-DeploymentPhases {
     )
 
     $hostedQueue = @{
-        queueId = 39 #Get-AgentID -org $org -creds $creds
+        queueId = Get-AgentID -org $org -creds $creds
     }
 
     $deployPhases = @(
