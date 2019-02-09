@@ -2,7 +2,9 @@ name: $(Build.DefinitionName)-$(date:yyyyMMdd)$(rev:.r)
 trigger:
   branches:
     include:
-    - 'master'
+    - 'development'
+    - 'rel/*'
+    - 'hotfix/*'
 
 jobs:
 - job: Windows
