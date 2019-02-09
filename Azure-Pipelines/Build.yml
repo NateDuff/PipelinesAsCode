@@ -1,0 +1,69 @@
+name: $(Build.DefinitionName)-$(date:yyyyMMdd)$(rev:.r)
+trigger:
+  branches:
+    include:
+    - 'master'
+
+jobs:
+- job: Windows
+  pool:
+    vmImage: 'VS2017-Win2016'
+
+  variables:
+    pesterScript: $(System.DefaultWorkingDirectory)\PipelinesAsCode.Tests.ps1
+    pesterOutput: $(System.DefaultWorkingDirectory)\Test-Pester.XML
+
+  steps:
+  - powershell: |
+      Install-Module -Name Pester -Force -SkipPublisherCheck
+      Install-Module -Name PSCodeCovIo -Force -SkipPublisherCheck
+    displayName: Install Modules
+
+  - powershell: |
+      Import-Module Pester
+      Import-Module PSCodeCovIo
+
+      $files = (Get-ChildItem . -Filter "*PipelinesAsCode.psm1").Fullname
+
+      $res = Invoke-Pester -Script $(pesterScript) -OutputFile $(pesterOutput) -OutputFormat NUnitXML -CodeCoverage $files -PassThru
+      
+      $failures = ([xml](Get-Content $(pesterOutput))).'test-results'.failures
+
+      Export-CodeCovIoJson -CodeCoverage $res.CodeCoverage -RepoRoot $pwd -Path coverage.json
+      
+      Invoke-WebRequest -Uri 'https://codecov.io/bash' -OutFile codecov.sh
+
+      if ($failures -gt 0) 
+      { 
+        throw "$failures tests failed."
+      }
+    displayName: Run Pester Tests
+    env:
+      StandardPW: $ENV:StandardPW
+
+  - task: PublishTestResults@2
+    condition: always()
+    inputs:
+      testResultsFormat: NUnit
+      testResultsFiles: $(pesterOutput)
+
+  - task: CopyFiles@2
+    displayName: 'Stage Module Files'
+    inputs:
+      sourceFolder: .
+      contents: 'PipelinesAsCode.ps**'
+      targetFolder: '$(System.DefaultWorkingDirectory)/Module'
+
+  - task: Bash@3
+    displayName: 'Upload coverage to Codecov'
+    condition: succeededOrFailed()
+    inputs:
+      targetType: 'filePath'
+      filePath: ./codecov.sh
+      arguments: -f coverage.json -t $(CodeCoverageKey)
+
+  - task: PublishBuildArtifacts@1
+    condition: always()
+    displayName: 'Publish Artifact'
+    inputs:
+      PathtoPublish: '$(System.DefaultWorkingDirectory)'
