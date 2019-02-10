@@ -7,7 +7,7 @@ trigger:
     - 'hotfix/*'
 
 jobs:
-- job: Windows
+- job: Hosted Build
   pool:
     vmImage: 'VS2017-Win2016'
 
