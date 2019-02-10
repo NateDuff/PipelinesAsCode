@@ -51,6 +51,6 @@ Write-Output "New Version: $($moduleVersion.ToString())"
 
 Import-Module "$module.psd1"
 
-Publish-Module -Name "$module.psd1" -NuGetApiKey $galleryKey # -RequiredVersion $releaseVersion
+Publish-Module -Name "$module.psd1" -NuGetApiKey $galleryKey -Force # -RequiredVersion $releaseVersion
 
 Write-Host "##vso[task.setvariable variable=ReleaseVersion;]$($moduleVersion.ToString())"
