@@ -9,6 +9,11 @@ $module = "$modulePath\$moduleName"
 
 [version]$previousVersion = (Find-Module $moduleName -AllVersions | select -First 1).Version
 
+if (!$previousVersion)
+{
+    $previousVersion = [version]::new(0, 0, 1)
+}
+
 $previousMajorVersion = $previousVersion.Major
 $previousMinorVersion = $previousVersion.Minor
 $previousBuildVersion = $previousVersion.Build
@@ -17,7 +22,6 @@ $newVersion = $releaseVersion.Split(".")
 
 $newMajorVersion = $newVersion | select -First 1
 $newMinorVersion = $newVersion | select -Last 1
-
 
 if ($previousMajorVersion -ne $newMajorVersion) {
     $majorVersion = $newMajorVersion
