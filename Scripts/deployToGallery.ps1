@@ -2,12 +2,20 @@ Param(
     $galleryKey,
     $moduleName = "PipelinesAsCode",
     $modulePath = ".\CI Build\drop\Module",
-    $releaseVersion
+    $releaseVersion,
+    [switch]$Prerelease
 )
 
 $module = "$modulePath\$moduleName"
 
-[version]$previousVersion = (Find-Module $moduleName -AllVersions | select -First 1).Version
+if ($Prerelease)
+{
+    [version]$previousVersion = (Find-Module PipelinesAsCode -MaximumVersion ([Version]::new(0,9,99))).Version
+}
+else
+{
+    [version]$previousVersion = (Find-Module $moduleName -AllVersions | select -First 1).Version
+}
 
 if (!$previousVersion)
 {
