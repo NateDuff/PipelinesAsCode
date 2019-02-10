@@ -1,7 +1,7 @@
 # Pipelines As Code
-[![codecov](https://codecov.io/gh/NateDuff/PipelinesAsCode/branch/master/graph/badge.svg)](https://codecov.io/gh/NateDuff/PipelinesAsCode)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a1a1144423c64e3b8eed8f1a12e843b2)](https://www.codacy.com/app/NateDuff/PipelinesAsCode?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=NateDuff/PipelinesAsCode&amp;utm_campaign=Badge_Grade)
-[![Build Status](https://dev.azure.com/NateDuff/PipelinesAsCode/_apis/build/status/CI%20Build?branchName=master)](https://dev.azure.com/NateDuff/PipelinesAsCode/_build/latest?definitionId=28&branchName=master)
+[![codecov](https://codecov.io/gh/NateDuff/PipelinesAsCode/branch/development/graph/badge.svg)](https://codecov.io/gh/NateDuff/PipelinesAsCode)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ffc9a41bd791498aaa426543307cb86e)](https://www.codacy.com/app/NateDuff/PipelinesAsCode?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=NateDuff/PipelinesAsCode&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://dev.azure.com/NateDuff/PipelinesAsCode/_apis/build/status/CI%20Build?branchName=development)](https://dev.azure.com/NateDuff/PipelinesAsCode/_build/latest?definitionId=28&branchName=development)
 [![Release Status](https://vsrm.dev.azure.com/NateDuff/_apis/public/Release/badge/ad13437d-ad6a-43cb-af82-61d7294a999e/1/1)](https://vsrm.dev.azure.com/NateDuff/_apis/public/Release/badge/ad13437d-ad6a-43cb-af82-61d7294a999e/1/1)
 [![AzureRM](https://img.shields.io/powershellgallery/v/PipelinesAsCode.svg?style=flat-square&label=PowerShellGallery)](https://www.powershellgallery.com/packages/PipelinesAsCode/)
 
@@ -80,7 +80,7 @@ Invoke-Pester .\PipelinesAsCode.Tests.ps1
 *   [YamlDotNet](https://github.com/aaubry/YamlDotNet) - .NET library to help convert YML to PowerShell objects
 
 ## Contributing
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://gist.github.com/NateDuff/078f85c765b1337e90dec79a8600ff73) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/NateDuff/PipelinesAsCode/tags). 

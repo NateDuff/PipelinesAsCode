@@ -3,8 +3,8 @@ $sut = (Split-Path -Leaf $MyInvocation.MyCommand.Path).Replace(".Tests.ps1", ".p
 
 Import-Module "$here\$sut"
 
-$orgName = "NateDuff"
-$projectName = "PipelinesAsCode"
+$orgName = "Duffnath" #"NateDuff"
+$projectName = "Testing" #"PipelinesAsCode"
 $buildName = "TestBuildDef"
 $releaseName = "TestReleaseDef"
 
