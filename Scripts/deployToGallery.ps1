@@ -48,7 +48,7 @@ Import-Module "$module.psm1"
 Update-ModuleManifest -Path "$module.psd1" -ModuleVersion $moduleVersion -RootModule "$module.psm1"
 
 Write-Output "New Version: $($moduleVersion.ToString())"
-
+ 
 Import-Module "$module.psd1"
 
 Publish-Module -Name "$module.psd1" -NuGetApiKey $galleryKey # -RequiredVersion $releaseVersion
