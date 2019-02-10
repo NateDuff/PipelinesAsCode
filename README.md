@@ -8,26 +8,26 @@
 The purpose of this library is to provide Azure DevOps pipeline administrators with a way to define and maintain both Build and Release Definitions with YML files for configuration/infrastructure as code. 
 
 ### Prerequisites
-PowerShellGet  
-Microsoft Account   
-Azure DevOps Account    
-Azure DevOps Project
+  * PowerShellGet  
+  * Microsoft Account   
+  * Azure DevOps Account    
+  * Azure DevOps Project
 
 > 2 Guides Available: [Module Only](#Getting-Started---Module-only) or [Full Project](#Getting-Started---Full-Project))
 
 ## Getting Started - Module Only
 These instructions will get you an updated copy of the module downloaded to your local machine and walk you through creating your first YML Build and Release Definitions!
 
-### Installing
+### Install - Module Only
 Install the latest version of the module from the PowerShell Gallery:
 
-```
+```powershell
 Install-Module PipelinesAsCode
 ```
 
 Once you've installed this module to your local system you should be able to use the functions and commandlets provided:
 
-```
+```powershell
 Import-Module PipelinesAsCode
 
 Get-Command -Module PipelinesAsCode
@@ -36,45 +36,48 @@ Get-Command -Module PipelinesAsCode
 ## Getting Started - Full Project
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [Module Only](#Getting-Started---Module-only) section for notes on how to use the module on a live system.
 
-### Installing
+### Install - Full Project
 Step by step instructions for how to install this project and the required dependencies to your local machine
 
 Install the latest version of the module from the PowerShell Gallery:
 
-```
+```powershell
 Install-Module PipelinesAsCode
 ```
 
 Install Pester for running PowerShell unit tests from the PowerShell Gallery:
 
-```
+```powershell
 Install-Module Pester
 ```
 
 Once you've installed these modules to your local system you should be able to use the functions and commandlets provided:
 
-```
+```powershell
 Import-Module Pester, PipelinesAsCode
 
 Get-Command -Module Pester, PipelinesAsCode
 ```
 
-## Running the tests
+## Execute Tests
 Once you have the project and Pester module installed, open PowerShell and navigate to the project directory:
 
-```
+```powershell
 Set-Location $HOME/source/repos/PipelinesAsCode
 ```
 
 Once you have the test scripts pointed at your AzureDevOps instance you can go ahead and run the tests using Pester:
 
-```
+```powershell
 Invoke-Pester .\PipelinesAsCode.Tests.ps1
 ```
 
-## Built With
-* [Codecov.io](https://codecov.io) - Code Coverage
-* [Codacy](https://codacy.com) - Code Quality
+## Development References
+  * [Codecov.io](https://codecov.io) - Code Coverage
+  * [Codacy](https://codacy.com) - Code Quality
+
+## Module References
+  * [YamlDotNet](https://github.com/aaubry/YamlDotNet) - .NET library to help convert YML to PowerShell objects
 
 ## Contributing
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
@@ -83,7 +86,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/NateDuff/PipelinesAsCode/tags). 
 
 ## Authors
-* **Nathan Duff** - [NateDuff](https://github.com/NateDuff)
+  * **Nathan Duff** - [NateDuff](https://github.com/NateDuff)
 
 <!-- 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project. 
