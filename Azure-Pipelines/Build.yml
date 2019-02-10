@@ -47,7 +47,7 @@ jobs:
     condition: always()
     inputs:
       testResultsFormat: NUnit
-      testResultsFiles: $(pesterOutput)
+      testResultsFiles: $(pesterOutput) 
 
   - task: CopyFiles@2
     displayName: 'Stage Module Files'
